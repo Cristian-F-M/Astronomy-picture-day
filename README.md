@@ -1,4 +1,4 @@
-<img src='/images/Astronomy.avif'>
+<img src='./public/images/Astronomy.avif'>
 
 
 ## Astronomy Picture of the Day
