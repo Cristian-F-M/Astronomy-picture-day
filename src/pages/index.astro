@@ -1,7 +1,20 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
+import {
+    getAstronomyPicture,
+    staticgetAstronomyPicture,
+} from "@/utils/AstronomyPicture";
+import { AstronomyPicture } from "@/components/AstronomyPicture.jsx";
+
+// const AstronomyPicture = getAstronomyPicture();
+const dataAstronomyPicture = staticgetAstronomyPicture();
 ---
 
-<Layout title="Welcome to Astro.">
-    <main></main>
+<Layout title="Astronomy Picture of the Day">
+    <div
+        class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
+    >
+    </div>
+
+    <AstronomyPicture client:only />
 </Layout>
