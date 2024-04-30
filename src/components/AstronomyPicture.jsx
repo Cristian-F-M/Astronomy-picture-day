@@ -11,7 +11,7 @@ export function AstronomyPicture() {
     });
     const [AstronomyPicture, setAstronomyPicture] = useState({});
     const [loading, setLoading] = useState(true);
-    const [errorDescription, setErrorDescripcion ] = useState(null)
+    const [errorDescription, setErrorDescripcion] = useState(null);
     const [error, setError] = useState(false);
     const previousDate = useRef(date);
 
@@ -21,16 +21,18 @@ export function AstronomyPicture() {
         )
             .then((res) => res.json())
             .then((data) => {
-                if (data.code === 400){
-                    setError(true)
-                    setErrorDescripcion("La fecha está en un formato no valido (yyyy-mm-dd)")
-                };
+                if (data.code === 400) {
+                    setError(true);
+                    setErrorDescripcion(
+                        "La fecha está en un formato no valido (yyyy-mm-dd)"
+                    );
+                }
 
                 setAstronomyPicture(data);
             })
             .catch((err) => {
                 setError(true);
-                setErrorDescripcion(err)
+                setErrorDescripcion(err);
             })
             .finally(() => {
                 setLoading(false);
@@ -57,22 +59,29 @@ export function AstronomyPicture() {
             <main className="w-full lg:max-w-[1200px] mt-8 flex flex-col items-center min-h-[700px]">
                 {loading && <p className="mt-8 text-3xl">Cargando...</p>}
                 {error && (
-                    <p className="mt-8 text-3xl">{ errorDescription ?? 'Un error a ocurrido, intenta recargar la pagina :) .' }</p>
+                    <p className="mt-8 text-3xl">
+                        {errorDescription ??
+                            "Un error a ocurrido, intenta recargar la pagina :) ."}
+                    </p>
                 )}
 
                 {AstronomyPicture && !loading && (
                     <>
                         <h2 className="text-3xl">{AstronomyPicture.title}</h2>
                         <div className="flex items-center flex-col gap-5 lg:flex-row mt-1">
-                            <figure className="mt-5 w-[50%] relative h-[550px]">
-                                <img
-                                    className="w-full h-full object-cover"
-                                    src={AstronomyPicture.url}
-                                    alt={AstronomyPicture.title}
-                                />
-                                <span className="absolute bottom-0 left-0 p-2 rounded-tl-xl">
-                                    {AstronomyPicture.copyright}
-                                </span>
+                            <figure className="mt-5 w-[50%] relative h-[550px]  overflow-hidden">
+                                <a href={AstronomyPicture.hdurl} target="_blank" className='[&>img]:hover:scale-110 block' title='Open in another tap'>
+                                    <img
+                                        className="w-full h-full object-cover transition-transform duration-300 ease-in-out cursor-pointer full-screen"
+                                        src={AstronomyPicture.url}
+                                        alt={AstronomyPicture.title}
+                                    />
+                                </a>
+                                {AstronomyPicture.copyright && (
+                                    <span className="absolute bottom-0 left-0 p-2 rounded-tl-xl">
+                                        {AstronomyPicture.copyright}
+                                    </span>
+                                )}
                             </figure>
                             <p className="w-[50%] text-pretty text-lg">
                                 {AstronomyPicture.explanation}
