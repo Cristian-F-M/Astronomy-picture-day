@@ -19,6 +19,7 @@ export function Header({ date, handleChangeDate }) {
                             id={dateId}
                             type="date"
                             value={date}
+                            max={new Date().toISOString().split('T')[0]}
                             className="bg-transparent"
                         />
                     </label>
