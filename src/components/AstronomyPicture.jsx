@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { formatDate } from "@/utils/formatDate";
 import { Header } from "@/components/Header";
+import { Media } from "@/components/Media";
 
 const NASA_API_KEY = "ovzhSZfj5su2vsxb5GFmYHmfJhK6WDjoQC6PH4T6";
 
@@ -70,12 +71,13 @@ export function AstronomyPicture() {
                         <h2 className="text-3xl">{AstronomyPicture.title}</h2>
                         <div className="flex items-center flex-col gap-5 lg:flex-row mt-1">
                             <figure className="mt-5 w-[50%] relative h-[550px]  overflow-hidden">
-                                <a href={AstronomyPicture.hdurl} target="_blank" className='[&>img]:hover:scale-110 block' title='Open in another tap'>
-                                    <img
-                                        className="w-full h-full object-cover transition-transform duration-300 ease-in-out cursor-pointer full-screen"
-                                        src={AstronomyPicture.url}
-                                        alt={AstronomyPicture.title}
-                                    />
+                                <a
+                                    href={AstronomyPicture.hdurl || AstronomyPicture.url}
+                                    target="_blank"
+                                    className="[&>img]:hover:scale-110 block size-full"
+                                    title="Open in another tap"
+                                >
+                                    <Media AstronomyPicture={AstronomyPicture} />
                                 </a>
                                 {AstronomyPicture.copyright && (
                                     <span className="absolute bottom-0 left-0 p-2 rounded-tl-xl">
