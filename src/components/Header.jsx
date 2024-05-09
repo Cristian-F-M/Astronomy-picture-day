@@ -10,8 +10,8 @@ export function Header({ date, handleChangeDate }) {
     return (
         <>
             <header className="mt-2 font-semibold flex items-center flex-col">
-                <h1 className='text-4xl' >Astronomy Picture of the Day</h1>
-                <form action="" className="my-1 w-fit text-xl">
+                <h1 className='text-2xl md:text-4xl text-center text-balance'>Astronomy Picture of the Day</h1>
+                <form action="" className="mt-2 w-fit text-xl">
                     <label htmlFor={dateId}>
                         <input
                             onClick={handleClickDate}
@@ -20,7 +20,7 @@ export function Header({ date, handleChangeDate }) {
                             type="date"
                             value={date}
                             max={new Date().toISOString().split('T')[0]}
-                            className="bg-transparent"
+                            className="bg-transparent text-base md:text-xl"
                         />
                     </label>
                 </form>

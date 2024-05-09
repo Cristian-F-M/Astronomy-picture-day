@@ -68,9 +68,9 @@ export function AstronomyPicture() {
 
                 {AstronomyPicture && !loading && (
                     <>
-                        <h2 className="text-3xl">{AstronomyPicture.title}</h2>
-                        <div className="flex items-center flex-col gap-5 lg:flex-row mt-1">
-                            <figure className="mt-5 w-[50%] relative h-[550px]  overflow-hidden">
+                        <h2 className="text-xl  md:text-3xl text-center text-balance">{AstronomyPicture.title}</h2>
+                        <div className="flex flex-col gap-8 lg:flex-row mt-1 items-start">
+                            <figure className="mt-5 w-[95%] md:w-[70%] relative h-auto overflow-hidden">
                                 <a
                                     href={AstronomyPicture.hdurl || AstronomyPicture.url}
                                     target="_blank"
@@ -85,7 +85,7 @@ export function AstronomyPicture() {
                                     </span>
                                 )}
                             </figure>
-                            <p className="w-[50%] text-pretty text-lg">
+                            <p className="w-full md:w-[50%] text-base md:text-lg text-center md:text-start text-pretty px-5 md:p-0">
                                 {AstronomyPicture.explanation}
                             </p>
                         </div>
