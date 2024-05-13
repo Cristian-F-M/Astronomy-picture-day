@@ -74,13 +74,13 @@ export function AstronomyPicture() {
                                 <a
                                     href={AstronomyPicture.hdurl || AstronomyPicture.url}
                                     target="_blank"
-                                    className="[&>img]:hover:scale-110 block size-full"
+                                    className="[&>img]:hover:scale-105 block size-full"
                                     title="Open in another tap"
                                 >
                                     <Media AstronomyPicture={AstronomyPicture} />
                                 </a>
                                 {AstronomyPicture.copyright && (
-                                    <span className="absolute bottom-0 left-0 p-2 rounded-tl-xl">
+                                    <span className="absolute bottom-0 left-0 px-1 text-black text-sm md:text-base text-pretty bg-white/20 backdrop-blur-sm">
                                         {AstronomyPicture.copyright}
                                     </span>
                                 )}
