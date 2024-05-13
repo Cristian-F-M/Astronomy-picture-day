@@ -20,7 +20,7 @@ export function Header({ date, handleChangeDate }) {
                             type="date"
                             value={date}
                             max={new Date().toISOString().split('T')[0]}
-                            className="bg-transparent text-base md:text-xl"
+                            className="bg-transparent text-base md:text-xl m-sm:outline px-2 py-1"
                         />
                     </label>
                 </form>
