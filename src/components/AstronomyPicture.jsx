@@ -73,7 +73,7 @@ export function AstronomyPicture() {
                 {AstronomyPicture && !loading && (
                     <>
                         <h2 className="text-xl  md:text-3xl text-center text-balance">{AstronomyPicture.title}</h2>
-                        <div className="flex flex-col gap-8 lg:flex-row mt-1 items-start">
+                        <div className="flex flex-col gap-8 lg:flex-row mt-1 items-center md:items-start">
                             <figure className="mt-5 w-[95%] md:w-[70%] relative h-auto overflow-hidden">
                                 <a
                                     href={AstronomyPicture.hdurl || AstronomyPicture.url}
