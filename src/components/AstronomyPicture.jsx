@@ -50,6 +50,7 @@ export function AstronomyPicture() {
 
     const handleChangeDate = ({ target }) => {
         if (previousDate.current === target.value) return;
+        if(target.value === '') return;
 
         setLoading(true);
         setDate(target.value);
