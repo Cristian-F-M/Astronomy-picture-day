@@ -8,7 +8,10 @@ const NASA_API_KEY = "ovzhSZfj5su2vsxb5GFmYHmfJhK6WDjoQC6PH4T6";
 export function AstronomyPicture() {
     const [date, setDate] = useState(() => {
         const searchParams = new URLSearchParams(window.location.search);
-        return searchParams.get("date") ?? formatDate({ date: new Date() });
+        console.log(searchParams.get("date") != '')
+        const param = searchParams.get("date") 
+        const date = (param && param != '') ? param : formatDate({ date: new Date() });
+        return date;
     });
     const [AstronomyPicture, setAstronomyPicture] = useState({});
     const [loading, setLoading] = useState(true);
